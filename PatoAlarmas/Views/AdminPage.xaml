@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:PatoAlarmas.Views"
+             x:Class="PatoAlarmas.Views.AdminPage"
+             Title="Admin">
+    <TabbedPage.Children>
+        <!-- Página de Usuarios -->
+        <ContentPage Title="Usuarios">
+            <StackLayout Padding="10">
+                <Button Text="Agregar Usuario" Clicked="OnAgregarUsuarioButtonClicked" />
+                <ListView x:Name="UsuariosListView" ItemSelected="OnUsuarioSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Nombre}" Detail="{Binding Correo}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+
+        <!-- Página de Vehículos -->
+        <ContentPage Title="Vehículos">
+            <StackLayout Padding="10">
+                <Button Text="Agregar Vehículo" Clicked="OnAgregarVehiculoButtonClicked" />
+                <ListView x:Name="VehiculosListView" ItemSelected="OnVehiculoSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Marca}" Detail="{Binding Modelo}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+
+        <!-- Página de Citas -->
+        <ContentPage Title="Citas">
+            <StackLayout Padding="10">
+                <Button Text="Agregar Cita" Clicked="OnAgregarCitaButtonClicked" />
+                <ListView x:Name="CitasListView" ItemSelected="OnCitaSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Fecha}" Detail="{Binding VehiculoId}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ContentPage>
+    </TabbedPage.Children>
+</TabbedPage>
